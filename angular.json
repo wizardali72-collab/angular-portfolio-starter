@@ -25,7 +25,8 @@
             "styles": [
               "src/styles.css"
             ],
-            "inlineStyleLanguage": "css"
+            "inlineStyleLanguage": "css",
+            "deployUrl": "/angular-portfolio/"
           },
           "configurations": {
             "production": {
