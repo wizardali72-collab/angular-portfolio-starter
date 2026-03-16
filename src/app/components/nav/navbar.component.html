@@ -1,0 +1,50 @@
+<nav [class.bg-white]="isScrolled" [class.shadow]="isScrolled"
+     class="fixed w-full top-0 left-0 z-50 transition-all duration-300">
+  <div class="max-w-7xl mx-auto px-6 flex justify-between items-center h-16">
+    <!-- Logo -->
+    <a href="#hero" class="text-indigo-600 font-bold text-xl">Portfolio</a>
+
+    <!-- Desktop Menu -->
+    <ul class="hidden md:flex space-x-8 text-gray-700 font-medium">
+      <li><a href="#about" class="hover:text-indigo-600">About</a></li>
+      <li><a href="#skills" class="hover:text-indigo-600">Skills</a></li>
+      <li><a href="#experience" class="hover:text-indigo-600">Experience</a></li>
+      <li><a href="#projects" class="hover:text-indigo-600">Projects</a></li>
+      <li><a href="#education" class="hover:text-indigo-600">Education</a></li>
+      <li><a href="#contact" class="hover:text-indigo-600">Contact</a></li>
+      <li>
+    <a href="https://www.linkedin.com/in/syed-mahmood-ali-2b70671a7?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank"
+       class="flex items-center space-x-1 text-indigo-600 hover:text-indigo-800">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 fill-current" viewBox="0 0 24 24">
+        <path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.24 8.24h4.5V24H.24zM9.08 8.24h4.3v2.14h.06c.6-1.13 2.08-2.32 4.28-2.32 4.58 0 5.42 3 5.42 6.92V24h-4.5v-7.73c0-1.84-.03-4.2-2.56-4.2-2.57 0-2.96 2-2.96 4.07V24h-4.5V8.24z"/>
+      </svg>
+      <span>LinkedIn</span>
+    </a>
+  </li>
+    </ul>
+
+    <!-- Mobile Menu Button -->
+    <button class="md:hidden text-gray-700" (click)="toggleMenu()">
+      ☰
+    </button>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div *ngIf="isMenuOpen" class="md:hidden bg-white shadow">
+    <ul class="flex flex-col p-4 space-y-4 text-gray-700 font-medium">
+      <li><a href="#about" (click)="toggleMenu()">About</a></li>
+      <li><a href="#skills" (click)="toggleMenu()">Skills</a></li>
+      <li><a href="#experience" (click)="toggleMenu()">Experience</a></li>
+      <li><a href="#projects" (click)="toggleMenu()">Projects</a></li>
+      <li><a href="#education" (click)="toggleMenu()">Education</a></li>
+      <li><a href="#contact" (click)="toggleMenu()">Contact</a></li>
+      <li>
+    <a href="https://www.linkedin.com/in/syed-mahmood-ali-2b70671a7?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank"
+       (click)="toggleMenu()"
+       class="flex items-center space-x-2 text-indigo-600 hover:text-indigo-800">
+      <span>🔗 LinkedIn</span>
+    </a>
+  </li>
+    </ul>
+  </div>
+</nav>

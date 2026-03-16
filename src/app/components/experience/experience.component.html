@@ -1,0 +1,78 @@
+<section id="experience" class="py-16 px-6 max-w-5xl mx-auto">
+  <h2 class="text-3xl font-bold text-center mb-10">Experience</h2>
+
+  <div class="space-y-8">
+    <div
+      *ngFor="let exp of experiences"
+      class="bg-white rounded-xl shadow p-6 flex space-x-6 items-start hover:shadow-lg transition"
+    >
+      <!-- Company Logo -->
+      <img
+        [src]="exp.logo"
+        alt="{{ exp.company }} logo"
+        class="w-14 h-14 rounded object-contain border"
+      />
+
+      <!-- Content -->
+      <div>
+        <h3 class="font-bold text-xl">{{ exp.title }}</h3>
+        <a
+          [href]="exp.companyUrl"
+          target="_blank"
+          class="text-indigo-600 font-medium hover:underline"
+          >{{ exp.company }}</a
+        >
+
+        <p class="text-gray-600 text-sm mt-1">
+          {{ exp.start | date : "MMM yyyy" }} –
+          {{
+            exp.end === "Present" ? "Present" : (exp.end | date : "MMM yyyy")
+          }}
+          · {{ getDuration(exp.start, exp.end) }}
+        </p>
+
+        <p class="mt-3 text-gray-700">{{ exp.shortDescription }}</p>
+
+        <!-- Learn More Button -->
+        <button
+          (click)="openModal(exp)"
+          class="mt-3 bg-blue-600 text-white font-medium px-4 py-2 rounded-md shadow hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-1 transition"
+        >
+          Show more
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div
+    *ngIf="activeModal"
+    class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
+  >
+    <div class="bg-white rounded-2xl shadow-lg max-w-2xl w-full p-6 relative">
+      <button
+        (click)="closeModal()"
+        class="absolute top-3 right-3 text-gray-500 hover:text-black text-lg"
+      >
+        ✖
+      </button>
+
+      <h3 class="text-2xl font-bold mb-4">
+        {{ activeModal.title }} — {{ activeModal.company }}
+      </h3>
+      <p class="text-gray-600 mb-4">
+        {{ activeModal.start | date : "MMM yyyy" }} –
+        {{
+          activeModal.end === "Present"
+            ? "Present"
+            : (activeModal.end | date : "MMM yyyy")
+        }}
+        · {{ getDuration(activeModal.start, activeModal.end) }}
+      </p>
+
+      <p class="whitespace-pre-line text-gray-700">
+        {{ activeModal.fullDescription }}
+      </p>
+    </div>
+  </div>
+</section>
